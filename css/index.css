@@ -1,3 +1,4 @@
+/* Reset dan dasar */
 *,
 *::after,
 *::before {
@@ -10,6 +11,7 @@
   --dark-color: #000;
 }
 
+/* Background effect */
 .night {
   position: fixed;
   left: 50%;
@@ -18,55 +20,63 @@
   width: 100%;
   height: 100%;
   filter: blur(0.1vmin);
-  background-image: radial-gradient(ellipse at top, transparent 0%, var(--dark-color)), radial-gradient(ellipse at bottom, var(--dark-color), rgba(145, 233, 255, 0.2)), repeating-linear-gradient(220deg, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 19px, transparent 19px, transparent 22px), repeating-linear-gradient(189deg, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 19px, transparent 19px, transparent 22px), repeating-linear-gradient(148deg, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 19px, transparent 19px, transparent 22px), linear-gradient(90deg, rgb(255, 255, 250), rgb(240, 240, 240));
+  background-image: radial-gradient(ellipse at top, transparent 0%, var(--dark-color)),
+    radial-gradient(ellipse at bottom, var(--dark-color), rgba(145, 233, 255, 0.2)),
+    repeating-linear-gradient(220deg, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 19px, transparent 19px, transparent 22px),
+    repeating-linear-gradient(189deg, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 19px, transparent 19px, transparent 22px),
+    repeating-linear-gradient(148deg, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 19px, transparent 19px, transparent 22px),
+    linear-gradient(90deg, rgb(255, 255, 250), rgb(240, 240, 240));
 }
 
+/* Judul */
 .title {
   position: absolute;
   top: 0;
   left: 0;
   color: white;
   font-family: 'Courier New', Courier, monospace;
-
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-content: center;
   align-items: center;
-
   width: 100%;
   height: 100vh;
   text-shadow: 0 0 20px white;
   letter-spacing: 0px;
+  padding: 0 1rem;
+  text-align: center;
+  font-size: clamp(1.5rem, 5vw, 3rem);
 }
 
-@media (min-width: 500px) {
-  .title {
-    letter-spacing: 20px;
-  }
-}
-
+/* Efek animasi teks */
 @keyframes typing {
   from {
     opacity: 0;
   }
-
   to {
     opacity: 1;
   }
 }
 
-/* Terapkan animasi dengan delay */
 .title span {
   opacity: 0;
   animation: typing 1s ease forwards;
   animation-delay: var(--delay);
 }
 
+/* Tambahan: responsive letter spacing */
+@media (min-width: 500px) {
+  .title {
+    letter-spacing: 20px;
+  }
+}
+
 a {
   text-decoration: none;
 }
 
+/* Tombol utama */
 .btn {
   border: none;
   width: 15em;
@@ -79,6 +89,7 @@ a {
   background: #1C1A1C;
   cursor: pointer;
   transition: all 450ms ease-in-out;
+  padding: 0 1rem;
 }
 
 .sparkle {
@@ -108,4 +119,44 @@ a {
 .btn:hover .sparkle {
   fill: white;
   transform: scale(1.2);
+}
+
+/* ========== RESPONSIVE BUTTON & LAYOUT ========== */
+
+.button-container {
+  position: absolute;
+  bottom: 8vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0 1rem;
+}
+
+@media (max-width: 480px) {
+  .btn {
+    width: 100%;
+    max-width: 300px;
+    height: 4em;
+    border-radius: 2em;
+    gap: 8px;
+  }
+
+  .text {
+    font-size: 0.9rem;
+  }
+
+  .sparkle {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-height: 500px) {
+  .button-container {
+    bottom: 4vh;
+  }
+
+  .btn {
+    height: 3.5em;
+  }
 }
