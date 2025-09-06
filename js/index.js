@@ -6,6 +6,9 @@ title.style.display = 'flex'
 title.style.flexWrap = 'wrap'
 title.style.justifyContent = 'center'
 title.style.gap = '0.5rem'
+title.style.position = 'absolute'
+title.style.top = '10vh' // Atau coba '5vh' atau '8vh' sesuai selera
+
 
 for (let index = 0; index < text.length; index++) {
   const span = document.createElement('span')
