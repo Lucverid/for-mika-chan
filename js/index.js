@@ -7,7 +7,7 @@ title.style.flexWrap = 'wrap'
 title.style.justifyContent = 'center'
 title.style.gap = '0.5rem'
 title.style.position = 'absolute' 
-title.style.top = '3vh' // Atau coba '5vh' atau '8vh' sesuai selera
+title.style.top = '0vh' // Atau coba '5vh' atau '8vh' sesuai selera
 
 
 for (let index = 0; index < text.length; index++) {
